@@ -1,0 +1,232 @@
+
+body {
+    background-color: #40a800;
+}
+
+.header__logo {
+    margin-left: 48px;
+}
+
+.container  {
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+.main {
+    background-color: #008080;
+    padding-bottom: 130px;
+}
+
+.header {
+    background-color: #F9F9F9;
+}
+
+.header__wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.header__menu {
+    align-items: center;
+    display: flex;
+    column-gap: 33px;
+}
+
+.menu-link {
+    font-family: "Roboto";
+    color: #12100C;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+}
+
+.header__btn {
+    padding: 10px 13px;
+    background-color: #00C599;
+    color: #FEF9E7;
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    border-radius: 5px;
+    margin-right: 22px;
+}
+
+
+.main__section-size {
+    display: flex;
+    column-gap: 120px;
+    padding: 33px 60px 100px 42px;
+}
+
+.main-section-title_size {
+    font-family: "Roboto" ;
+    font-size: 80px;
+    font-weight: 700;
+    line-height: 88px;
+    color: #FEAA02;
+}
+
+.main-section-title_color {
+    color: #00C599;
+}
+
+.main-text_size {
+    font-family: "Roboto";
+    font-size: 23px;
+    font-weight: 400;
+    line-height: 32px;
+    color: #FFFFFF;
+    margin-bottom: 41px;
+}
+.btn__service {
+    margin-right: 3px;
+    font-family: "Roboto";
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 16px;
+    color: white;
+}
+
+.btn_service_coenner_left {
+    padding: 15px 42px 15px 62px;
+    background-color: #DAA520;
+    box-shadow: 0px 1px 1px 0px #0000001A;
+    border-bottom-left-radius: 100px;
+}
+
+.btn_service_coenner_right {
+    padding: 15px 22px 15px 19px;
+    background-color: #00C599;
+    box-shadow: 0px 1px 1px 0px #0000001A;
+    border-top-right-radius: 100px;
+}
+
+.main_section_card_advantages_text {
+    font-family: "Roboto";
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 12px;
+    letter-spacing: 0.2em;
+    text-align: justify;
+    max-width: 279px;
+    padding-bottom: 7px;
+    border-bottom: 2px solid #00C599;
+}
+
+.main-section-card-advantages-group-text {
+    display: flex;
+    gap: 85px 45px;
+    flex-wrap: wrap;
+    padding: 6px 315px 131px 50px;
+
+}
+
+.main__section-advantages {
+    position: relative;
+}
+
+.main__section__card-advantages {
+    background-color: white;
+    max-width: 1380px;
+    border-bottom-left-radius: 200px;
+    
+}
+
+.title__advantages_title_advantages_mod {
+    font-family: "Roboto";
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 50px;
+    letter-spacing: 0.2em;
+    color: #00C599;
+    margin-left: 210px;
+    margin-bottom: 28px;
+}
+
+.frame {
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.block {
+    padding: 230px 420px;
+    position: absolute;
+    background-color: #40a800;
+    right: -840px;
+    z-index: 2;
+}
+
+.frame-line {
+    border: 2px solid #FEAA02;
+    border-right: 0;
+    border-bottom-left-radius: 100px;
+    position: absolute;
+    right: -610px; 
+    transition: right 2s ease;
+  }
+
+  .frame-line.active {
+    right: -203px; 
+  }
+
+  .frame-line-position-one.active {
+    top: 35px;
+    padding: 50px 300px;
+    animation: fly 1.5s forwards; 
+  }
+
+  .frame-line-position-two.active {
+    top: 138px;
+    padding: 50px 252px;
+    animation: fly 2.5s forwards; 
+  }
+
+  .frame-line-position-tree.active {
+    bottom: 140px;
+    padding: 50px 202px;
+    animation: fly 3.5s forwards;
+  }
+
+  .frame-line-position-four.active {
+    bottom: 37px;
+    padding: 50px 152px;
+    animation: fly 4.5s forwards; 
+  }
+
+  @keyframes fly {
+    from { right: -610px; }
+    to { right: -203px; }
+  }
+
+.footer {
+    padding: 50px;
+    background-color: white;
+}
+
+.text-footer {
+    font-family: "Roboto";
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0.2em;
+    text-align: justify;
+    color: #00C599;
+    max-width: 590px;
+}
+
+.footer-block {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-list {
+    margin-right: 60px;
+    display: flex;
+    column-gap: 74px;
+}
+
+
+
