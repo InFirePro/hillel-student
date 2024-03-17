@@ -128,29 +128,18 @@ body {
   padding: 16px 0 16px 32px;
   border-right: none;
   border-left: none;
+  padding-right: 85px;
 }
 
-/* .cryptocurrency__title-list-item {
+.cryptocurrency__title-list-item {
   flex-grow: 1;
   flex-basis: 0;
-} */
+}
 
 .cryptocurrency__price-text {
   font-size: 13px;
   line-height: 18px;
   color: #18181B;
-}
-
-.cryptocurrency__title-list-item:nth-child(1) {
-  margin-right: 221px;
-}
-
-.cryptocurrency__title-list-item:nth-child(2) {
-  margin-right: 191px;
-}
-
-.cryptocurrency__title-list-item:nth-child(3) {
-  margin-right: 175px;
 }
 
 .cryptocurrency__banner {

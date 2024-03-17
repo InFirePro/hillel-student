@@ -3,13 +3,16 @@ body {
     background-color: #40a800;
 }
 
-.header__logo {
-    margin-left: 48px;
-}
 
 .container  {
     max-width: 1440px;
     margin: 0 auto;
+}
+
+@media screen and (max-width: 1024px) {
+    .container  {
+        padding: 10px;
+    }
 }
 
 .main {
@@ -79,6 +82,46 @@ body {
     color: #FFFFFF;
     margin-bottom: 41px;
 }
+
+@media screen and (max-width: 1024px) {
+    .main-text_size {
+        font-size: 15px;
+        line-height: 25px;
+        margin-bottom: 20px;
+        max-width: 400px;
+    }
+    .main-section-title_size {
+        font-size: 60px;
+    }
+    .img-windmill {
+        max-width: 450px;
+    }
+    .main__section-size {
+        column-gap: 30px;
+        padding: 15px 12px 30px 12px;
+    }
+}
+
+@media screen and (max-width:769px) {
+    .main-section-title_size {
+        font-size: 40px;
+        line-height: 48px;   
+    }
+.main-text_size {
+    font-size: 12px;
+    line-height: 18px;
+    margin-bottom: 20px;
+    max-width: 400px;
+}
+.img-windmill {
+    max-width: 280px;
+}
+.main__section-size {
+    column-gap: 60px;
+    padding: 10px 10px 20px 10px;
+}
+}
+
 .btn__service {
     margin-right: 3px;
     font-family: "Roboto";
@@ -102,6 +145,29 @@ body {
     border-top-right-radius: 100px;
 }
 
+@media screen and (max-width: 1024px) {
+    .btn_service_coenner_right {
+        padding: 10px 12px 10px 9px;
+    }
+       
+    .btn_service_coenner_left {
+        padding: 10px 22px 10px 42px;
+    }
+}
+
+@media screen and (max-width:769px){
+    .btn_service_coenner_right {
+        padding: 5px 6px 5px 5px;
+    }
+       
+    .btn_service_coenner_left {
+        padding: 5px 12px 5px 22px;
+    }
+    .btn__service {
+        font-size: 10px;
+    }
+}
+
 .main_section_card_advantages_text {
     font-family: "Roboto";
     font-size: 12px;
@@ -119,7 +185,26 @@ body {
     gap: 85px 45px;
     flex-wrap: wrap;
     padding: 6px 315px 131px 50px;
+    
+}
 
+@media screen and (max-width: 1024px) {
+    .main-section-card-advantages-group-text {
+        gap: 20px;
+        padding: 0px 10px 110px 10px;
+        justify-content: center;
+    }
+    .main {
+        padding-bottom: 25px;
+    }
+    @media screen and (max-width:769px){
+    .main-section-card-advantages-group-text {
+        padding: 0px 10px 90px 10px;
+        }
+    .main_section_card_advantages_text {
+        font-size: 10px;
+    }
+    }
 }
 
 .main__section-advantages {
@@ -144,6 +229,20 @@ body {
     margin-bottom: 28px;
 }
 
+@media screen and (max-width: 1024px) { 
+    .title__advantages_title_advantages_mod {
+        margin-bottom: 10px;
+        font-size: 26px;
+        margin-left: 0;
+        text-align: center;
+    }
+    @media screen and (max-width:769px) {
+        .title__advantages_title_advantages_mod{
+        font-size: 20px;
+    }
+    }
+}
+
 .frame {
     display: flex;
     flex-direction: column;
@@ -151,11 +250,26 @@ body {
 }
 
 .block {
-    padding: 230px 420px;
+    display: flex;
+    padding: 230px 220px;
     position: absolute;
     background-color: #40a800;
-    right: -840px;
+    right: -440px;
     z-index: 2;
+}
+
+@media screen and  (max-width:1542px) {
+    .block {
+        display: none;
+    }
+    
+}
+
+@media screen and (max-width:1322px) {
+    .frame-line {
+        display: none;
+    }
+    
 }
 
 .frame-line {
@@ -163,41 +277,36 @@ body {
     border-right: 0;
     border-bottom-left-radius: 100px;
     position: absolute;
-    right: -610px; 
     transition: right 2s ease;
   }
-
-  .frame-line.active {
-    right: -203px; 
-  }
-
+  
   .frame-line-position-one.active {
     top: 35px;
-    padding: 50px 300px;
+    padding: 50px 197px;
     animation: fly 1.5s forwards; 
   }
 
   .frame-line-position-two.active {
     top: 138px;
-    padding: 50px 252px;
+    padding: 50px 139px;
     animation: fly 2.5s forwards; 
   }
 
   .frame-line-position-tree.active {
     bottom: 140px;
-    padding: 50px 202px;
+    padding: 50px 89px;
     animation: fly 3.5s forwards;
   }
 
   .frame-line-position-four.active {
     bottom: 37px;
-    padding: 50px 152px;
+    padding: 50px 40px;
     animation: fly 4.5s forwards; 
   }
 
   @keyframes fly {
     from { right: -610px; }
-    to { right: -203px; }
+    to { right: -0px; }
   }
 
 .footer {
@@ -222,11 +331,44 @@ body {
     justify-content: space-between;
 }
 
+
+
 .footer-list {
     margin-right: 60px;
     display: flex;
     column-gap: 74px;
 }
 
+@media screen and (max-width:1024px) {
+    .footer {
+        padding: 15px;
+    }
+    .footer-block {
+        column-gap: 325px;
+    }
+    .text-footer {
+        font-size: 15px;
+        letter-spacing: 0;
+    }
+    .footer-list {
+        column-gap: 15px;
+        margin-right: 0;
+    }
+    .img-icon {
+        max-width: 50px;
+    }
+}
+
+@media screen and (max-width:769px){
+    .img-icon {
+        max-width: 40px;
+    }
+    .footer-block {
+        column-gap: 200px;
+    }
+    .text-footer {
+        font-size: 12px;
+    }
+}
 
 
