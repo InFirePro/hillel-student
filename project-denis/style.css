@@ -546,7 +546,7 @@ body {
         max-width: 40px;
     }
     .footer-block {
-        column-gap: 50px;
+        column-gap: 10px;
     }
     .text-footer {
         font-size: 10px;
