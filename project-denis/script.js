@@ -12,8 +12,12 @@ window.addEventListener('scroll', () => {
     });
 });
 
-$(document).ready(function() {
-  $('.header__burger').click(function(event) {
-    $('.header__burger,.header__menu').toggleClass('active');
+document.addEventListener('DOMContentLoaded', function() {
+  const headerBurger = document.querySelector('.header__burger');
+  const headerMenu = document.querySelector('.header__menu');
+
+  headerBurger.addEventListener('click', function() {
+    headerBurger.classList.toggle('active');
+    headerMenu.classList.toggle('active');
   });
 });

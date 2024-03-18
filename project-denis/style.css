@@ -120,6 +120,8 @@ body {
         width: 100%;
         height: 2px;
         top: 9px;
+        transition: all 0.2s ease 0s;
+        
     }
     .header__burger:before ,
     .header__burger:after {
@@ -129,6 +131,7 @@ body {
         width: 100%;
         height: 2px;
         left: 0;
+        transition: all 0.3s ease 0s;
     }
     .header__burger:before {
         top: 0;
@@ -136,14 +139,29 @@ body {
     .header__burger:after {
         bottom: 0;
     }
+    .header__burger.active span {
+        transform: scale(0);
+    }
+    .header__burger.active:before {
+        transform: rotate(45deg);
+        top: 9px;
+    }
+    .header__burger.active:after {
+        transform: rotate(-45deg);
+        bottom: 9px;
+    }
     .header__menu {
         position: fixed;
-        top: 0;
+        top: -100%;
         left: 0;
         width: 100%;
         height: 100%;
         background-color: #c4c4c4;
+        transition: all 0.5s ease 0s;
         padding: 85px 15px 25px 15px;
+    }
+    .header__menu.active {
+        top: 0;
     }
     .menu__list {
         display: block;
@@ -231,7 +249,7 @@ body {
     font-size: 12px;
     line-height: 18px;
     margin-bottom: 20px;
-    max-width: 400px;
+    max-width: 700px;
 }
 .img-windmill {
     display: block;
@@ -240,6 +258,16 @@ body {
 .main__section-size {
     column-gap: 60px;
     padding: 10px 10px 20px 10px;
+}
+
+@media screen and (max-width:500px) {
+
+    .main__section-size {
+        display: block;
+    }
+.img-windmill {
+    display: none;
+}
 }
 }
 
@@ -289,6 +317,19 @@ body {
     }
 }
 
+@media screen and (max-width:500px){
+    .btn_service_coenner_right {
+        padding: 12px 15px 12px 3px;
+    }
+       
+    .btn_service_coenner_left {
+        padding: 12px 3px 12px 15px;
+    }
+    .btn__service {
+        font-size: 11px;
+    }
+}
+
 .main_section_card_advantages_text {
     font-family: "Roboto";
     font-size: 12px;
@@ -323,10 +364,20 @@ body {
         padding: 0px 10px 90px 10px;
         }
     .main_section_card_advantages_text {
-        font-size: 10px;
+        font-size: 12px;
     }
     }
 }
+
+@media screen and (max-width:500px) {
+    .main_section_card_advantages_text {
+        font-size: 10px;
+    }
+    .main-section-card-advantages-group-text {
+        padding: 0px 5px 100px 5px;
+        }
+}
+
 
 .main__section-advantages {
     position: relative;
@@ -487,6 +538,18 @@ body {
     }
     .text-footer {
         font-size: 12px;
+    }
+}
+
+@media screen and (max-width:500px){
+    .img-icon {
+        max-width: 40px;
+    }
+    .footer-block {
+        column-gap: 50px;
+    }
+    .text-footer {
+        font-size: 10px;
     }
 }
 
