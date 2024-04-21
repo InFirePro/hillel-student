@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Калькулятор маси парафіна</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+      }
+
+      .wrapper__cal {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        flex-wrap: wrap;
+      }
+      .calculator {
+        width: 300px;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        margin-right: 20px;
+        float: left;
+        box-sizing: border-box;
+      }
+      input[type="text"],
+      input[type="button"] {
+        width: calc(100% - 20px);
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+      }
+      input[type="button"] {
+        width: 100%;
+        cursor: pointer;
+        background-color: #f0f0f0;
+      }
+      input[type="button"]:hover {
+        background-color: #e0e0e0;
+      }
+      #calculationHistory {
+        width: calc(100% - 20px);
+        margin-top: 20px;
+        border-collapse: collapse;
+        clear: both;
+      }
+      #calculationHistory th,
+      #calculationHistory td {
+        padding: 8px;
+        text-align: center;
+        border-bottom: 1px solid #ddd;
+      }
+      #calculationHistory th {
+        background-color: #f2f2f2;
+      }
+      @media (max-width: 768px) {
+        .calculator {
+          width: calc(100% - 40px);
+          margin-right: 0;
+          margin-bottom: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper__cal">
+      <div class="calculator">
+        <h2>Pierwsze nalanie</h2>
+        <input
+          type="text"
+          id="weightPerItem1"
+          placeholder="Waga Pierwszego nalania (kg)"
+          onkeypress="handleKeyPress(event, 'quantityPerRow1')"
+        />
+        <input
+          type="text"
+          id="quantityPerRow1"
+          placeholder="Ilosc swiecek w rzedzie"
+          onkeypress="handleKeyPress(event, 'totalRows1')"
+        />
+        <input
+          type="text"
+          id="totalRows1"
+          placeholder="Ilosc rzedow do pierwszego nalewaka"
+        />
+        <input
+          type="text"
+          id="line"
+          placeholder="Linia"
+          onkeypress="handleKeyPress(event, 'orderNumber')"
+        />
+        <input
+          type="text"
+          id="orderNumber"
+          placeholder="Numer Zamowienia"
+          onkeypress="handleKeyPress(event, 'currentWeight1')"
+        />
+        <input
+          type="text"
+          id="currentWeight1"
+          placeholder="Ilosc parafiny w wozku  (kg)"
+          onkeypress="handleKeyPress(event, 'currentQuantity1')"
+        />
+        <input
+          type="text"
+          id="currentQuantity1"
+          placeholder="Ilosc wyprodukowana"
+          onkeypress="handleKeyPress(event, 'requiredQuantity1')"
+        />
+        <input
+          type="text"
+          id="requiredQuantity1"
+          placeholder="Ilosc calego zamowienia"
+          onkeypress="handleKeyPress(event, 'result1')"
+        />
+        <input
+          type="button"
+          value="Obliczyc"
+          onclick="calculateTotalWeight1()"
+        />
+        <input
+          type="text"
+          id="result1"
+          placeholder="Ilosc parafiny ktora trzeba zamowic (kg)"
+          readonly
+        />
+      </div>
+
+      <div class="calculator" id="secondCalculator">
+        <h2>Drugie nalanie</h2>
+        <input
+          type="text"
+          id="weightPerItem2"
+          placeholder="Waga drugiego nalania (kg)"
+          onkeypress="handleKeyPress(event, 'quantityPerRow2')"
+        />
+        <input
+          type="text"
+          id="quantityPerRow2"
+          placeholder="Ilosc swiecek w rzedzie"
+          onkeypress="handleKeyPress(event, 'totalRows2')"
+        />
+        <input
+          type="text"
+          id="totalRows2"
+          placeholder="Ilosc rzedow do drugiegi nalewaka"
+        />
+        <input
+          type="text"
+          id="currentWeight2"
+          placeholder="Ilosc parafiny w wozku  (kg)"
+          onkeypress="handleKeyPress(event, 'currentQuantity2')"
+        />
+        <input
+          type="text"
+          id="currentQuantity2"
+          placeholder="Ilosc wyprodukowana"
+          onkeypress="handleKeyPress(event, 'requiredQuantity2')"
+        />
+        <input
+          type="text"
+          id="requiredQuantity2"
+          placeholder="Ilosc calego zamowienia"
+          onkeypress="handleKeyPress(event, 'result2')"
+        />
+        <input
+          type="button"
+          value="Obliczyc"
+          onclick="calculateTotalWeight2()"
+        />
+        <input
+          type="text"
+          id="result2"
+          placeholder="Ilosc parafiny ktora trzeba zamowic (kg)"
+          readonly
+        />
+      </div>
+    </div>
+
+    <!-- Таблиця для відображення історії обчислень -->
+    <table
+      id="calculationHistory"
+      style="width: 100%; margin-top: 20px; margin-bottom: 30px"
+    >
+      <tr>
+        <th>Numer</th>
+        <th>Nalanie</th>
+        <th>Pole informacyjne</th>
+        <th>Ilosc zrobenia/-Ilosc zaduzo</th>
+      </tr>
+    </table>
+
+    <script>
+      function handleKeyPress(event, nextElementId) {
+        if (event.key === "Enter") {
+          document.getElementById(nextElementId).focus();
+        }
+      }
+
+      function calculateTotalWeight1() {
+        var weightPerItem = parseFloat(
+          document.getElementById("weightPerItem1").value.replace(",", "."),
+        );
+        var quantityPerRow = parseFloat(
+          document.getElementById("quantityPerRow1").value.replace(",", "."),
+        );
+        var totalRows = parseFloat(
+          document.getElementById("totalRows1").value.replace(",", "."),
+        );
+        var currentWeight = parseFloat(
+          document.getElementById("currentWeight1").value.replace(",", "."),
+        );
+        var currentQuantity = parseFloat(
+          document.getElementById("currentQuantity1").value.replace(",", "."),
+        );
+        var requiredQuantity = parseFloat(
+          document.getElementById("requiredQuantity1").value.replace(",", "."),
+        );
+
+        if (
+          !isNaN(weightPerItem) &&
+          !isNaN(quantityPerRow) &&
+          !isNaN(totalRows) &&
+          !isNaN(currentWeight) &&
+          !isNaN(currentQuantity) &&
+          !isNaN(requiredQuantity)
+        ) {
+          var currentItems = currentWeight / weightPerItem;
+          var totalItems =
+            currentItems + currentQuantity + quantityPerRow * totalRows;
+          var remainingItems = requiredQuantity - totalItems;
+          var totalWeight = remainingItems * weightPerItem;
+          if (totalWeight < 0) {
+            var excessParaffin = Math.abs(totalWeight).toFixed(2);
+            document.getElementById(
+              "result1",
+            ).value = `juz masz zaduzo parafiny (${excessParaffin} kg)`;
+          } else {
+            document.getElementById("result1").value =
+              totalWeight.toFixed(2) + " kg";
+          }
+
+          // Збереження кількості свічок у рядку, кількості вироблених та необхідних свічок для другого калькулятора
+          const quantityPerRow1 = parseFloat(
+            document.getElementById("quantityPerRow1").value,
+          );
+          const currentQuantity1 = parseFloat(
+            document.getElementById("currentQuantity1").value,
+          );
+          const requiredQuantity1 = parseFloat(
+            document.getElementById("requiredQuantity1").value,
+          );
+
+          // Встановлення значень у другому калькуляторі
+          document.getElementById("quantityPerRow2").value = isNaN(
+            quantityPerRow1,
+          )
+            ? ""
+            : quantityPerRow1;
+          document.getElementById("currentQuantity2").value = isNaN(
+            currentQuantity1,
+          )
+            ? ""
+            : currentQuantity1;
+          document.getElementById("requiredQuantity2").value = isNaN(
+            requiredQuantity1,
+          )
+            ? ""
+            : requiredQuantity1;
+
+          // Збереження інформації про введені дані у історію
+          const fieldValues = `Waga: ${weightPerItem} kg, w rzedzie: ${quantityPerRow}, Ilosc rzedow: ${totalRows}, Linia: ${
+            document.getElementById("line").value
+          }, Numer: ${
+            document.getElementById("orderNumber").value
+          }, parafiny w wozku: ${currentWeight} kg, wykonano: ${currentQuantity}, Ilosc zamowienia: ${requiredQuantity}`;
+          saveCalculationToHistory(
+            {
+              calculatorName: "pierwsze",
+              fieldValues: fieldValues,
+              totalWeight: totalWeight.toFixed(2) + " kg",
+              excessParaffin: excessParaffin + " kg",
+            },
+            "pierwzse",
+          );
+        } else {
+          document.getElementById("result1").value = "pole nie wpisane";
+        }
+      }
+
+      function calculateTotalWeight2() {
+        var weightPerItem = parseFloat(
+          document.getElementById("weightPerItem2").value.replace(",", "."),
+        );
+        var quantityPerRow = parseFloat(
+          document.getElementById("quantityPerRow2").value.replace(",", "."),
+        );
+        var totalRows = parseFloat(
+          document.getElementById("totalRows2").value.replace(",", "."),
+        );
+        var currentWeight = parseFloat(
+          document.getElementById("currentWeight2").value.replace(",", "."),
+        );
+        var currentQuantity = parseFloat(
+          document.getElementById("currentQuantity2").value.replace(",", "."),
+        );
+        var requiredQuantity = parseFloat(
+          document.getElementById("requiredQuantity2").value.replace(",", "."),
+        );
+
+        if (
+          !isNaN(weightPerItem) &&
+          !isNaN(quantityPerRow) &&
+          !isNaN(totalRows) &&
+          !isNaN(currentWeight) &&
+          !isNaN(currentQuantity) &&
+          !isNaN(requiredQuantity)
+        ) {
+          var currentItems = currentWeight / weightPerItem;
+          var totalItems =
+            currentItems + currentQuantity + quantityPerRow * totalRows;
+          var remainingItems = requiredQuantity - totalItems;
+          var totalWeight = remainingItems * weightPerItem;
+          if (totalWeight < 0) {
+            var excessParaffin = Math.abs(totalWeight).toFixed(2);
+            document.getElementById(
+              "result2",
+            ).value = `zaduzo parafiny (${excessParaffin} kg)`;
+          } else {
+            document.getElementById("result2").value =
+              totalWeight.toFixed(2) + " kg";
+          }
+
+          // Збереження інформації про введені дані у історію
+          const fieldValues = `Waga: (kg): ${weightPerItem} kg, w rzedzie: ${quantityPerRow}, Ilosc rzedow: ${totalRows}, Linia: ${
+            document.getElementById("line").value
+          }, Numer: ${
+            document.getElementById("orderNumber").value
+          }, parafiny w wozku: ${currentWeight} kg, wykonano: ${currentQuantity}, Ilosc zamowienia: ${requiredQuantity}`;
+          saveCalculationToHistory(
+            {
+              calculatorName: "Drugie",
+              fieldValues: fieldValues,
+              totalWeight: totalWeight.toFixed(2) + " kg",
+              excessParaffin: excessParaffin + " kg",
+            },
+            "Drugie",
+          );
+        } else {
+          document.getElementById("result2").value = "pole nie wpisane";
+        }
+      }
+
+      // Функція для збереження даних в localStorage
+      function saveDataToLocalStorage(data) {
+        localStorage.setItem("calculatorData", JSON.stringify(data));
+      }
+
+      // Функція для отримання даних з localStorage
+      function getDataFromLocalStorage() {
+        const data = localStorage.getItem("calculatorData");
+        return data ? JSON.parse(data) : {};
+      }
+
+      // Функція для оновлення полів калькулятора з localStorage
+      function updateCalculatorFieldsFromLocalStorage() {
+        const storedData = getDataFromLocalStorage();
+        if (storedData.line && storedData.orderNumber) {
+          document.getElementById("line").value = storedData.line;
+          document.getElementById("orderNumber").value = storedData.orderNumber;
+        }
+      }
+
+      // Функція для збереження історії обчислень в localStorage
+      function saveCalculationToHistory(calculation, calculatorName) {
+        const history = getDataFromLocalStorage().history || [];
+        history.unshift({ calculatorName, ...calculation });
+        saveDataToLocalStorage({ ...getDataFromLocalStorage(), history });
+        displayCalculationHistory(); // Оновлення історії після додавання нового обчислення
+      }
+
+      // Функція для відображення історії обчислень
+      function displayCalculationHistory() {
+        const history = getDataFromLocalStorage().history || [];
+        const historyTable = document.getElementById("calculationHistory");
+        historyTable.innerHTML = "";
+        history.slice(0, 20).forEach((calculation, index) => {
+          if (!calculation.totalWeight.startsWith("-")) {
+            // Перевірка на від'ємне значення
+            const row = historyTable.insertRow();
+            row.innerHTML = `<td>${index + 1}</td><td>${
+              calculation.calculatorName
+            }</td><td>${calculation.fieldValues}</td><td>${
+              calculation.totalWeight
+            }</td>`;
+          }
+        });
+      }
+
+      // Виклик функції оновлення полів калькулятора з localStorage при завантаженні сторінки
+      window.onload = function () {
+        updateCalculatorFieldsFromLocalStorage();
+        displayCalculationHistory();
+      };
+
+      // Функція для вибору калькулятора
+      function chooseCalculator() {
+        var useSecondCalculator = document.getElementById(
+          "useSecondCalculator",
+        ).checked;
+        var secondCalculator = document.getElementById("secondCalculator");
+
+        if (useSecondCalculator) {
+          secondCalculator.style.display = "block";
+        } else {
+          secondCalculator.style.display = "none";
+          clearCalculatorFields();
+        }
+      }
+
+      // Очищення полів другого калькулятора
+      function clearCalculatorFields() {
+        var fields = document.querySelectorAll(
+          "#secondCalculator input[type='text']",
+        );
+        fields.forEach(function (field) {
+          field.value = "";
+        });
+      }
+
+      // Виклик функції вибору калькулятора при завантаженні сторінки
+      window.onload = function () {
+        chooseCalculator();
+      };
+
+      // Виклик функції вибору калькулятора при зміні значення переключника
+      document.getElementById("useSecondCalculator").onchange = function () {
+        chooseCalculator();
+      };
+    </script>
+  </body>
+</html>

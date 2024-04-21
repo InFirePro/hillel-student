@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Калькулятор маси</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+      .calculator {
+        width: 300px;
+        margin: 50px auto;
+        border: 1px solid #ccc;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      input[type="text"],
+      input[type="button"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+      }
+      input[type="button"] {
+        cursor: pointer;
+        background-color: #f0f0f0;
+      }
+      input[type="button"]:hover {
+        background-color: #e0e0e0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="calculator">
+      <input
+        type="text"
+        id="weightPerItem"
+        placeholder="Середня маса одного предмета (кг)"
+      />
+      <input
+        type="text"
+        id="quantityPerRow"
+        placeholder="Кількість предметів у рядку"
+      />
+      <input type="text" id="totalRows" placeholder="Кількість рядків" />
+      <input type="text" id="currentWeight" placeholder="Поточна маса (кг)" />
+      <input
+        type="text"
+        id="currentQuantity"
+        placeholder="Кількість предметів, які вже є в наявності"
+      />
+      <input
+        type="text"
+        id="requiredQuantity"
+        placeholder="Кількість предметів, які потрібно зробити"
+      />
+      <input type="button" value="Обчислити" onclick="calculateTotalWeight()" />
+      <input
+        type="text"
+        id="result"
+        placeholder="Загальна маса (кг)"
+        readonly
+      />
+    </div>
+
+    <script>
+      function calculateTotalWeight() {
+        var weightPerItem = parseFloat(
+          document.getElementById("weightPerItem").value.replace(",", ".")
+        );
+        var quantityPerRow = parseFloat(
+          document.getElementById("quantityPerRow").value.replace(",", ".")
+        );
+        var totalRows = parseFloat(
+          document.getElementById("totalRows").value.replace(",", ".")
+        );
+        var currentWeight = parseFloat(
+          document.getElementById("currentWeight").value.replace(",", ".")
+        );
+        var currentQuantity = parseFloat(
+          document.getElementById("currentQuantity").value.replace(",", ".")
+        );
+        var requiredQuantity = parseFloat(
+          document.getElementById("requiredQuantity").value.replace(",", ".")
+        );
+
+        if (
+          !isNaN(weightPerItem) &&
+          !isNaN(quantityPerRow) &&
+          !isNaN(totalRows) &&
+          !isNaN(currentWeight) &&
+          !isNaN(currentQuantity) &&
+          !isNaN(requiredQuantity)
+        ) {
+          // Розділяємо поточну масу на середню масу предмета
+          var currentItems = currentWeight / weightPerItem;
+          // Додаємо кількість предметів, які вже є в наявності, до кількості предметів, які потрібно зробити
+          var totalItems =
+            currentItems + currentQuantity + quantityPerRow * totalRows;
+          // Віднімаємо від загальної кількості кількість предметів, які потрібно зробити
+          var remainingItems = requiredQuantity - totalItems;
+          // Обчислення загальної маси
+          var totalWeight = remainingItems * weightPerItem;
+          document.getElementById("result").value =
+            totalWeight.toFixed(2) + " кг";
+        } else {
+          document.getElementById("result").value = "Некоректні дані";
+        }
+      }
+    </script>
+  </body>
+</html>

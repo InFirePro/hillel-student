@@ -1,0 +1,289 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+body {
+    background-color:white;
+    font-family: "Roboto";
+    font-weight: 400;
+    font-size: 16px;  
+}
+
+.header {
+   background-color: rgba(0, 0, 0, 0.801) ;
+   margin-bottom: 58px;
+   position: sticky;
+   top: 0; 
+   z-index: 1;
+}
+
+.navigation {
+   padding-top: 43px;
+   padding-bottom: 45px;
+}
+
+.section-one {
+   margin-bottom: 44px;
+}
+
+.list {
+   text-align: center;
+}
+
+.item-list {
+   display: inline-block;
+   margin-right: 53px;
+}
+
+.nav-list-link {
+   color: white;
+   font-size: 18px;
+   line-height: 22px;
+   
+}
+ a {
+   animation: shake 1s infinite;
+ }
+
+@keyframes shake {
+   0%, 100% {
+       transform: translateX(0); 
+   }
+   50% {
+       transform: translateX(5px) translateY(5px); 
+   }
+}
+
+.container {
+   max-width: 1200px;
+   margin: 0 auto;
+} 
+
+.content-text {
+   display: inline-block;
+}
+
+.title {
+   font-weight: 400;
+   font-size: 80px;
+   max-width: 573px;
+   margin-right: 135px;
+   margin-bottom: 37px;
+   display: inline-block;
+}
+
+.text {
+   font-size: 20px;
+   line-height: 30px;
+   max-width: 530px;
+   margin-bottom: 46px;
+}
+
+.img-girl { 
+   margin-top: 15px;
+   display: inline-block;
+   vertical-align: top;
+ }
+
+.btn-box {
+   /* display: flex; */
+   position: relative;
+   top: 0;
+   right: 0;
+}
+
+.input { 
+   padding: 20px 57px;
+   border: 3px solid black;
+   border-radius: 50px 0 0 50px;
+} 
+
+.btn {
+   box-shadow: 7px 7px rgba(0, 0, 0, 0.514);
+   position: absolute;
+   letter-spacing: 0.5px;
+   text-transform: uppercase;
+   padding: 18.3px 19px;
+   color: white;
+   background-color: black;
+   border-radius: 0px 50px 50px 0px;
+   font-size: 16px;
+   line-height: 24px;
+   animation: shake 1s infinite;
+}
+
+
+ /*  */
+
+
+.section-two {
+   text-align: center;
+   margin-bottom: 70px;
+}
+
+.step-text {
+   display: block;
+   margin-bottom: 30px;
+   font-size: 19px;
+   line-height: 27px;
+   text-transform: uppercase;
+   letter-spacing: 1px;
+}
+.title-product {
+   margin: 0 auto;
+   font-size: 50px;
+   line-height: 66px;
+   margin-bottom: 57px;
+   max-width: 506px;
+ }
+
+.wrapper {
+   padding-top: 71px;
+   text-align: left;
+   background-color:#FCD0BA ;
+   border-radius: 12px;
+}
+
+.info-box {
+   display: inline-block;
+   margin-left: 54px;
+}
+
+.text-item {
+   font-size: 20px;
+   line-height: 28px;
+   text-transform: uppercase;
+   letter-spacing: 0.1em;
+ }
+
+.title-item {
+   margin-top: 23px;
+   margin-bottom: 35px;
+   font-size: 45px;
+   line-height: 48px;
+   max-width: 301px;
+}
+
+.img-accept  {
+   margin-right: 19px;
+} 
+
+.accept-item  {
+   margin-bottom: 34px;
+}
+
+.accept-bottom {
+   margin-bottom: 23px;
+}
+
+.accept-text {
+   padding-top: 7px;
+   display: inline-block;
+   text-align: left;
+   font-size: 20px;
+   line-height: 24px;
+   max-width: 306px;
+}
+
+.accept-text-item {
+   padding: 0px;
+   margin-top: -4px;
+}
+
+/*  */
+
+.section-tree {
+   text-align: center;
+}
+
+.wrapper-down {
+   padding-top: 71px;
+   text-align: left;
+   background-color: #CCD3E7;
+   padding-bottom: 82px;
+}
+
+.recommended {
+   text-align: center;
+   border-radius: 40px;
+   max-width: 141px;
+   background-color: white;
+   font-size: 12px;
+   line-height: 24px;
+   padding: 9px 3px 9px 3px;
+}
+
+.img-phone-block,
+.img-card-block {
+   display: inline-block;
+   vertical-align: top;
+}
+
+.text-card {
+   max-width: 384px;
+   font-size: 16px;
+   line-height: 24px;
+   margin-bottom: 28px;
+}
+
+.info-box-step-two {
+   margin-left: 24px;
+}
+
+.accept-bottom-step-two { 
+   margin-bottom: 55px;
+}
+
+.btn-step-two {
+   padding: 13px 29px; 
+   border-radius: 50px;
+   max-width: 155px;
+}
+
+.link-text {
+   color: white;
+   font-size: 16px;
+   line-height: 24px;
+}
+
+
+/*  */
+
+.footer-wrapper{
+   background-color: #020016;
+   padding: 83px 0px 201px 0px;
+}
+
+.footer-block {
+   display: flex;
+}
+
+.footer-block-list:nth-child(2) {
+   margin:0px 0px  0px 506px;
+}
+
+.text-footer {
+   font-size: 12px;
+   line-height: 18px;
+   color:  #B3B3B3;
+   max-width: 254px;
+}
+
+.footer-list {
+   display: inline-block;
+   vertical-align: text-top;
+   margin-right: 39px;
+}
+
+.footer-list-item {
+   margin-bottom: 20px;
+}
+
+.footer-list-link {
+   font-size: 16px;
+   line-height: 24px;
+   color: white;
+}
+.nav-list-link:hover {
+   color: brown;
+   transition: color 0.8s ease;
+}

@@ -1,0 +1,675 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,300;0,400;0,700;1,400;1,700&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+.body {
+    font-family: "Work Sans";
+    font-size: 22px;
+    background-color: #2B2B2B;
+    color: white;
+}
+
+.container {
+    max-width: 1050px;
+    margin: 0 auto;
+}
+
+@media screen and (max-width: 834px) {
+    .container{
+       max-width: 750px;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    .container{
+       padding: 0 30px;
+    }
+}
+
+
+@media screen and (max-width: 680px) {
+    .container{
+       max-width: 600px;
+    }
+}
+
+.header-container {
+    max-width: 1180px;
+    margin: 0 auto;
+}
+
+@media screen and (max-width: 1220px) {
+    .header-container {
+        padding: 0 50px;
+    }
+}
+
+.header-wrapper {
+    padding: 20px 0;
+    background-color: #2B2B2B;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 4;
+}
+
+@media screen and (max-width: 834px) {
+    .header-wrapper {
+        padding: 15px 0;
+    }
+}
+
+
+.header-wrapper:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+    background-color: #2B2B2B;
+}
+
+.header {
+    position: relative;
+}
+
+.logo {
+    position: relative;
+    z-index: 4;
+}
+
+@media screen and (max-width: 834px) {
+
+}
+
+.navigation {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navigation__wrapper-list {
+    display: flex;
+    align-items: center;
+}
+
+.navigation__list {
+    display: flex; 
+    column-gap: 52px;
+    position: relative;
+    z-index: 3;
+    align-items: center;
+    margin-right: 30px;
+}
+
+.navigation__link {
+    font-size: 16px;
+    line-height: 140%;
+    font-weight: 500;
+    color: white;
+}
+
+
+.button {
+    font-family: "Work Sans";
+    background-color: #A259FF;
+    font-size: 16px;
+    color: white;
+    border-radius: 20px;
+    font-weight: 500;
+    display: flex;
+    
+}
+
+.navigation_btn {
+    z-index: 3;
+    padding: 20px 30px;
+
+}
+
+.navigation__icon {
+    margin-right: 12px;
+}
+
+.navigation__burger {
+display: none;
+}
+
+@media screen and (max-width: 980px) {
+
+    .header-wrapper {
+        padding: 15px 0;
+    }
+    
+    .navigation__burger {
+        display: block;
+        position: relative;
+        width: 18px;
+        height: 14px;
+        z-index: 4;
+        right: 4px;
+    }
+    .navigation__burger span {
+        position: absolute;
+        background-color: white;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        top: 6px;
+        transition: all 0.2s ease 0s;
+        border-radius: 10px;
+    }
+    .navigation__burger:before ,
+    .navigation__burger:after {
+        content: "";
+        background-color: white;
+        position: absolute;
+        width: 71%;
+        height: 2px;
+        left: 0;
+        transition: all 0.3s ease 0s;
+    }
+    .navigation__burger:before {
+        top: 0;
+    }
+    .navigation__burger:after {
+        bottom: 0;
+    }
+    .navigation__burger.active span {
+        transform: scale(0);
+    }
+    .navigation__burger.active:before {
+        transform: rotate(45deg);
+        top: 6px;
+    }
+    .navigation__burger.active:after {
+        transform: rotate(-45deg);
+        bottom: 6px;
+    }
+    .navigation__wrapper-list {
+        display: flex;
+        align-items: start;
+        justify-content: space-around;
+        position: fixed;
+        top: -100%;
+        left: 0;
+        width: 100%;
+        background-color: #c4c4c4;
+        transition: all 0.5s ease 0s;
+        padding: 85px 15px 25px 15px;
+    }
+    .navigation__wrapper-list.active {
+        top: 0;
+    }
+    .navigation__list {
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+    }
+    .navigation__item {
+        width: 100%;
+        text-align: center;
+        border-bottom: 1px solid rgb(184, 184, 184);
+        padding: 10px 0;
+    }
+    .navigation__item:nth-child(3) {
+        border-bottom: none;
+        padding-bottom: 20px;
+    }
+    .navigation__item {
+        font-size: 20px;
+    } 
+    .button {
+        align-self: center;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .navigation__wrapper-list {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .navigation__burger {
+        right: 0;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .header-container {
+        padding:0 30px;
+    }
+}
+
+.main {
+    padding-top: 100px;
+}
+
+
+@media screen and (max-width: 834px) {
+    .main {
+        padding-top: 54px;
+    }
+}
+/* crate account */
+
+.create-account {
+}
+ 
+.create-account__wrapper {
+    display: flex;
+    column-gap: 60px;
+    align-items: center;
+}
+
+
+@media screen and (max-width: 1024px) {
+    .create-account__wrapper {
+        column-gap: 40px;
+    }
+    
+}
+
+@media screen and (max-width: 730px) {
+    .create-account__wrapper {
+        flex-direction: column;
+        row-gap: 30px;
+    }
+    
+}
+
+
+.create-account__box-img {
+    flex-grow: 1;
+}
+
+@media screen and (max-width: 1024px) {
+    .create-account__box-img {
+        height: 615px;
+        
+    }
+}
+
+@media screen and (max-width: 730px) {
+    .create-account__box-img {
+        height: 432px;
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 630px) {
+    .create-account__box-img {
+        height: 332px;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .create-account__box-img {
+        height: 232px;
+    }
+}
+
+.create-account__img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+
+.create-account__title {
+    font-size: 51px;
+    line-height: 110%;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-transform: capitalize;
+}
+
+@media screen and (max-width: 1024px) {
+    .create-account__title {
+        font-size: 38px;
+        line-height: 120%;
+        font-weight: 600;
+        margin-bottom: 13px;
+        max-width: 315px;
+    }
+}
+
+@media screen and (max-width: 730px) {   
+    .create-account__title {
+        margin-bottom: 20px;
+}
+}
+
+.create-account__text {
+    line-height: 160%;
+    font-weight: 300;
+    text-transform: capitalize;
+    max-width: 460px;
+    margin-bottom: 40px;
+    letter-spacing: 0.5px;
+}
+
+@media screen and (max-width: 1024px) {
+    .create-account__text {
+        font-size: 16px;
+        max-width: 315px;
+    }
+}
+
+@media screen and (max-width: 730px) {   
+    .create-account__text {
+        margin-bottom: 30px;
+        line-height: 140%;
+}
+}
+
+.create-account__form-wrapper { 
+    flex-grow: 1;
+}
+
+@media screen and (max-width: 940px) {   
+    .create-account__form-wrapper {
+        padding-right: 60px;
+}
+}
+
+@media screen and (max-width: 730px) {   
+    .create-account__form-wrapper {
+        padding: 0 30px 40px 30px;
+}
+}
+
+.create-account__form {
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
+}
+
+.create-account__label {
+    position: relative;
+}
+
+.create-account__icon {
+    position: absolute;
+    top: 12px;
+    left: 20px;
+}
+
+.create-account__input {
+    padding: 15.5px 52px;
+    max-width: 330px;
+    border-radius: 20px;
+    width: 100%;
+}
+
+@media screen and (max-width: 730px) {
+    .create-account__input {
+        max-width: 315px;
+    }
+}
+
+.create-account__input::placeholder {
+    color: #2B2B2B;
+    font-size: 16px;
+    line-height: 140%;
+    letter-spacing: 0.5px;
+}
+
+.create-account_btn {
+    margin-top: 15px;
+    max-width: 330px;
+    padding: 12px 0px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    font-size: 16px;
+    line-height: 140%;
+    font-weight: 600;
+    align-self: start;
+}
+
+@media screen and (max-width: 730px) {
+    .create-account_btn {
+        max-width: 315px;
+    }
+}
+
+
+/* footer */
+
+.footer {
+    background-color: #3B3B3B;
+}
+
+.footer-nft {
+    padding: 40px 0px;
+}
+
+@media screen and (max-width: 1020px) {
+    .footer-nft {
+        padding: 40px 10px;
+    }
+}
+
+@media screen and (max-width: 950px) {
+    .footer-nft {
+        padding: 40px 32px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .footer-nft {
+        padding: 40px 30px;
+    }
+}
+
+
+.footer-nft__wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+@media screen and (max-width: 950px) {
+    .footer-nft__wrapper {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        row-gap: 30px;
+    }
+}
+
+.footer-nft__join-community {
+    flex-shrink: 5;
+}
+
+@media screen and (max-width: 950px) {
+    .footer-nft__wrapper {
+        flex-direction: column;
+        align-items: start;
+        row-gap: 30px;
+    }
+}
+
+.footer-nft__logo {
+    margin-bottom: 30px;
+}
+
+@media screen and (max-width: 950px) {
+    .footer-nft__logo {
+        margin-bottom: 20px;
+    }
+}
+
+.footer-nft__text-join {
+    margin-bottom: 20px;
+    max-width: 238px;
+}
+
+@media screen and (max-width: 950px) {
+    .footer-nft__text-join {
+        max-width: 690px;
+    }
+}
+
+
+.footer-nft__text,
+.footer-nft__text-join,
+.footer-nft__community-link,
+.footer-nft__text-digest {
+    font-size: 16px;
+    line-height: 140%;
+    color: #cccccc;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+}
+
+@media screen and (max-width: 950px) {
+    .footer-nft__text,
+    .footer-nft__text-join,
+    .footer-nft__community-link,
+    .footer-nft__text-digest {
+    
+    letter-spacing: 0;
+}
+}
+
+.footer-nft__text-digest {
+    max-width: 330px;
+}
+
+@media screen and (max-width: 950px) {
+    .footer-nft__text-digest {
+        max-width: 690px;
+    }
+}
+
+.footer-nft__community-list {
+    margin-top: 11px;
+    display: flex;
+    column-gap: 10px;
+    align-items: center;
+}
+
+.footer-nft__explore {
+    flex-shrink: 5;
+    padding-right: 18px;
+}
+
+
+.footer-nft__join-digest {
+    flex-basis: 40%;
+    flex-shrink: 0;
+}
+
+.footer-nft__title {
+    margin-bottom: 25px;
+    line-height: 160%;
+    font-weight: bold;
+    font-family: "Space Mono";
+}
+
+@media screen and (max-width: 950px) {
+    .footer-nft__title {
+        margin-bottom: 20px;
+    }
+}
+
+
+.footer-nft__community-list-join {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    row-gap: 17px;
+}
+
+.footer-nft__form {
+    position: relative;
+    margin-top: 20px;
+}
+
+@media screen and (max-width: 600px) {
+    .footer-nft__form {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.footer-nft_btn {
+    padding: 19px 51px;
+    font-size: 16px;
+    line-height: 140%;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    column-gap: 12px;
+    display: flex;
+    align-items: center;
+}
+
+@media screen and (max-width: 950px) {
+    .footer-nft_btn {
+        right: 45px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .footer-nft_btn {
+        padding: 12px 0;
+        width: 100%;
+        position: static;
+        justify-content: center;
+    }
+}
+
+.footer-nft__input {
+    padding: 19px 42px 19px 20px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    font-size: 16px;
+    line-height: 140%;
+    font-weight: 400;
+    font-family: "Work Sans";
+    color: black;
+}
+
+.footer-nft__input::placeholder {
+    color: black;
+}
+
+@media screen and (max-width: 600px) {
+    .footer-nft__input {
+        padding: 12px 20px;
+        border-radius: 20px;
+        width: 100%;
+        margin-bottom: 16px;
+    }
+}
+
+.footer-nft__text-box {
+    margin-top: 30px;
+    border-top: 1px solid #858584;
+}
+
+@media screen and (max-width: 950px) {
+    .footer-nft__text-box {
+        margin-top: 50px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .footer-nft__text-box {
+        margin-top: 30px;
+    }
+}
+
+.footer-nft__text-footer {
+    margin-top: 20px;
+    font-size: 12px;
+    line-height: 110%;
+    color: #CCCCCC;
+    font-family: "Work Sans";
+    font-weight: 300;
+    letter-spacing: 1px;
+}

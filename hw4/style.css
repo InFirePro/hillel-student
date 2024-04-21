@@ -1,0 +1,67 @@
+
+.header {
+    background-color: darkred;
+    padding: 20px;
+}
+
+.navigation { 
+    background-color: aqua; 
+}
+
+.list {
+    background-color: blueviolet;
+    
+}
+
+.link { 
+    color: white;
+    background-color: black;
+}
+
+.title {
+    font-weight: 900;
+    background-color: red;
+    padding: 10px;
+    margin: -20px 0px 0px 0px;
+    font-size: 22px;
+}
+
+.paragraph##6177EB-top {
+    font-weight: 800;
+    background-color: red;
+    margin-top: 0px;
+    height: 55px;
+    padding: 10px;
+}
+
+.title-main {
+    font-family: 'Birthstone', cursive;
+    font-size: 40px;
+    font-weight: 600;
+    margin: 50px 0px 50px 0px;  
+}
+
+.section {
+    background-color: burlywood;
+    margin-top: 50px;
+    padding: 45px;
+}
+
+h2 {
+    font-size: 18px;
+    border: 5px solid lime;
+    margin-bottom: 80px;
+    padding: 0px;  
+}
+
+.paragraph {
+    background-color:beige;
+    padding: 10px;
+    height: 15px; 
+}
+
+footer {
+    color: white;
+    font-size: 10px;
+    background-color: red;
+}
