@@ -1205,11 +1205,18 @@ display: none;
 
 @media screen and (max-width: 600px) {
     .mashrooms__img-box {
-        height: 593px
+        height: 593px;
     }
     
 }
 
+
+@media screen and (max-width: 600px) {
+    .mashrooms__img-box {
+        height: 593px;
+    }
+    
+}
 
 .mashrooms__img {
     width: 100%;
@@ -1352,13 +1359,13 @@ display: none;
 }
 
 @media screen and (max-width: 600px) {
-    .mashrooms__btn {
+    .mashrooms_btn {
         grid-column-start: 1;
         grid-column-end: 1;
-        grid-row-start: 3;
+        grid-row-start: 4;
         grid-row-end: 4;
+        width: 100%;
         justify-self: center;
-        max-width: 315px;
     }
 }
 
