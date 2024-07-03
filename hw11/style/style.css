@@ -1359,7 +1359,7 @@ display: none;
 }
 
 @media screen and (max-width: 600px) {
-    .mashrooms_git btn {
+    .mashrooms_btn {
         grid-column-start: 1;
         grid-column-end: 1;
         grid-row-start: 3;
